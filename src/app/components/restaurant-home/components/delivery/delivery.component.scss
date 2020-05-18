@@ -1,0 +1,25 @@
+.nav-pills .nav-link.active {
+    color: black;
+    background-color: white;
+    border-bottom: 2px solid black;
+    border-radius: 0rem;
+}
+.menu-button{
+    border-bottom: 1px solid #1a1a1a;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+.tab-pane{
+    padding-bottom: 10vh;
+}
+.add-button{
+    display: inline-block;
+    border: 1px solid #1a1a1a;
+    border-radius: 2rem;
+    padding: 0.1rem 0.6rem;
+}
+// .close-button{
+//     position: absolute;
+//     padding-right: 2vw;
+//     right: 0;
+// }

@@ -1,0 +1,80 @@
+<div class="bg-black">
+    <!-------------- Silde menu --------------------->
+    <div id="sideMenu" class="sidenav text-center pt-2">
+        <div class="col-12 text-left mb-2 pl-2 pr-0 row close-button">
+            <div class="col-2 pr-0 pointer" (click)="openMenu(false)">
+                <a>&lt;</a>
+            </div>
+            <div class="col-10 pl-0 text-center">
+                <h5 class="mb-0">Menu</h5>
+            </div>
+        </div>
+        <div class="pointer" (click)="openMenu(false)">
+            <div class="col-12 pl-4 menu-button" [routerLink]="['/' + this.taskData]">
+                <a>Home</a>
+            </div>
+            <div class="col-12 pl-4 menu-button" (click)="openPopUp('order',true)">
+                <a>Order</a>
+            </div>
+            <!-- <div class="col-12 pl-4 menu-button" (click)="openPopUp('history',true)">
+                <a>History</a>
+            </div> -->
+        </div>
+    </div>
+    <!--------------------------------------------------->
+
+    <!--------------- All header part --------------------->
+    <div class="row">
+        <div class="col-2">
+            <a class="nav-link pointer" (click)="openMenu(true)">
+                <img class="width-50" src="./assets/dist/img/Menu.png"/>
+            </a>
+        </div>
+        <div class="col-8 text-center pt-1 pb-1">
+            <h5 [routerLink]="['/' + this.taskData]" style="cursor: pointer;">
+                <img class="width-70" src="./assets/dist/img/Logo_Em_dinning.png"/>
+            </h5>
+            <div *ngIf="this.searchPage == false">
+                <app-search [taskData]="this.taskData"></app-search>
+            </div>
+        </div>
+        <div class="col-2">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link text-right pr-2 pointer" (click)="openPopUp('cart',true)">
+                        <img class="width-50" src="./assets/dist/img/Cart.png"/>
+                        <span class="badge badge-danger navbar-badge">3</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!---------------------------------------------->
+    <!-------------- Cart pop up ------------------->
+    <div class="pop-up-cart" *ngIf="this.cartPopUp">
+        <div class="row bg-dark">
+            <div class="col-2 close-button pl-4" (click)="openPopUp('cart',false)">&times;</div>
+            <div class="col-8 text-center"><h5>Cart</h5></div>
+        </div>
+        <app-cart-home></app-cart-home>
+    </div>
+    
+    <!-------------- History pop up ----------------->
+    <!-- <div class="pop-up-cart" *ngIf="this.historyPopUp">
+        <div class="row bg-dark">
+            <div class="col-2 close-button pl-4" (click)="openPopUp('history',false)">&times;</div>
+            <div class="col-8 text-center"><h5>History</h5></div>
+        </div>
+        <app-history></app-history>
+    </div> -->
+
+    <!-------------- Order pop up ------------------>
+    <div class="pop-up-cart" *ngIf="this.orderPopUp">
+        <div class="row bg-dark">
+            <div class="col-2 close-button pl-4" (click)="openPopUp('order',false)">&times;</div>
+            <div class="col-8 text-center"><h5>Order</h5></div>
+        </div>
+        <app-order></app-order>
+    </div>
+
+</div>

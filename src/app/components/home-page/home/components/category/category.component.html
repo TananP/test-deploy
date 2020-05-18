@@ -1,0 +1,16 @@
+<div class="container pt-5">
+    <div class="title-home-box">
+        <h5 class="pl-3 title-home pr-3">Category</h5>
+    </div>
+    <!-------------- Render category from list in home page --------------->
+    <div>
+        <div id="categoryArea" class="row category-list pt-3 pb-3">
+            <div class="col-4 pointer" *ngFor="let category of categoryList;">
+                <div class="category-button text-center" [routerLink]="['/'+ this.taskData ,'shop-list',this.taskData,category]">
+                    {{category}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--------------------------------------------------------------------->
+</div>

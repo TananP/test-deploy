@@ -1,0 +1,14 @@
+<div class="container pt-5">
+    <div class="title-home-box">
+        <h5 class="pl-3 title-home pr-3">Restaurants</h5>
+    </div>
+    <!------ Render shop from shop list in hame page ------->
+    <div class="row pt-2 pb-2 text-center">
+        <div class="col-4 pointer" *ngFor="let restaurants of restaurantsList;" >
+            <div class="restaurants-button" [routerLink]="['/'+ this.taskData ,'restaurant-home',this.taskData,' ',restaurants]">
+                {{restaurants}}
+            </div>
+        </div>
+    </div>
+    <!------------------------------------------------------>
+</div>

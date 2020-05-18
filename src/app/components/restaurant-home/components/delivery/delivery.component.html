@@ -1,0 +1,129 @@
+<div>
+    <!------------------ Tab menu ---------------->
+    <ul class="nav nav-pills mb-3 text-center" id="pills-tab" role="tablist">
+        <li class="col-6 nav-item">
+        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#recommend-menu" role="tab" aria-controls="pills-home" aria-selected="true">
+            Recommend</a>
+        </li>
+        <li class="col-6 nav-item">
+        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#all-menu" role="tab" aria-controls="pills-profile" aria-selected="false">
+            All Menu</a>
+        </li>
+    </ul>
+    <!------------------------------------------->
+    
+    <!----------------------- Tab content ------------------------>
+    <div class="tab-content" id="pills-tabContent">
+
+        <!--------------- Recommend menu ---------->
+        <div class="tab-pane fade show active" id="recommend-menu" role="tabpanel" aria-labelledby="pills-home-tab">
+            <h5>Recommend menu</h5>
+            <!-- Render menu from list -->
+            <div class="col-12 row menu-button" (click)="popUp(recommend)" *ngFor="let recommend of recommendList;">
+                <div class="col-3">
+                </div>
+                <div class="col-7">
+                    <p>Recommend menu {{recommend}}</p>
+                    <p class="desiption-text">Some food desciption</p>
+                    <p class="pt-4">0 bath</p>
+                </div>
+                <div class="col-2 align-self-center text-center">
+                    <div class="add-button">
+                        <p>+</p>
+                    </div>
+                </div>
+            </div>
+            <!--------------------------->
+        </div>
+        <!------------------------------------------>
+
+        <!--------------- All menu ---------->
+        <div class="tab-pane fade" id="all-menu" role="tabpanel" aria-labelledby="pills-profile-tab">
+            <h5>All menu</h5>
+            <div class="col-12 row menu-button" (click)="popUp(menu)" *ngFor="let menu of menuList;">
+                <div class="col-3">
+                </div>
+                <div class="col-7">
+                   <p> All menu {{menu}}</p>
+                   <p class="desiption-text">Some food desciption</p>
+                   <p class="pt-4">0 bath</p>
+                </div>
+                <div class="col-2  align-self-center text-center">
+                    <div class="add-button">
+                        <p>+</p>
+                    </div>                 
+                </div>
+            </div>
+        </div>
+        <!------------------------------------------>
+    </div>
+</div>
+
+<!------ Ordering pop up  ----------->
+<div class="pop-up" *ngIf="this.openPopUp">
+    <div class="pop-up-content">
+        <div (click)="closePopUp()" class="text-right">
+            <!-- <img src="../../../../../assets/dist/img/Close.png"/> -->
+            <p>&#10005;</p>
+        </div>
+        <div class="pb-1">
+            <p>Menu number {{this.menuName}}</p>
+            <p class="desiption-text">Some food desciption</p>
+        </div>
+        <hr>
+        <div class="pb-2">
+            <p>Comment</p>
+            <textarea class="form-control" rows="5" id="comment"></textarea>
+        </div>
+        <div class="row pb-3">
+            <div class="col-4 text-right" (click)="changeDishNumber('minus')">
+                <div class="add-button">
+                    <p>-</p>
+                </div>
+            </div>
+            <div class="col-4 align-self-center text-center">
+                <div>
+                    <p>{{this.numberEachDish}}</p>
+                </div>
+            </div>
+            <div class="col-4" (click)="changeDishNumber('add')">
+                <div class="add-button">
+                    <p>+</p>
+                </div>
+            </div>
+        </div>
+        <div class="row green-button">
+            <div class="col-6">
+                <p>Add to cart</p>
+            </div>
+            <div class="col-6 text-right">
+                <p>{{this.numberEachDish}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-------------------------------------------->
+
+<!----------------- Cart button --------------->
+<div class="row cart-button text-center pointer" (click)="openCart(true)">
+    <div class="col-2">
+        <p>0</p>
+    </div>
+    <div class="col-8">
+        <p>Your cart</p>
+    </div>
+    <div class="col-2">
+        <p>0</p>
+    </div>
+</div>
+<!--------------------------------------------->
+
+<!------------------- Cart pop up ------------->
+<div class="pop-up-cart" *ngIf="this.openCartPopUp">
+    <div class="row bg-dark">
+        <div class="col-2" (click)="openCart(false)">&times;</div>
+        <div class="col-8 text-center"><h5>Cart</h5></div>
+    </div>
+    <app-cart-home></app-cart-home>
+</div>
+<!--------------------------------------------->
