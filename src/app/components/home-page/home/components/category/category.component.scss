@@ -4,8 +4,8 @@
     flex-wrap: nowrap;
 }
 .category-button{
-    border: 2px solid black;
-    padding: 1.5rem 0.5rem;
+    border: 1px solid #B39462;
+    padding: 3.5rem 0.5rem;
 }
 .next-button{
   position:absolute;
@@ -32,11 +32,11 @@
    
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: yellowgreen; 
+  background: #B39462; 
   border-radius: 0.5rem;
 }
   
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: yellowgreen; 
+  background: #B39462; 
 }
