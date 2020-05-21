@@ -23,6 +23,7 @@ import { HistoryComponent } from './layouts/header/components/history/history.co
 import { OrderComponent } from './layouts/header/components/order/order.component';
 import { OrderInformationComponent } from './layouts/header/components/order/components/order-information.component';
 import { ErrorNotFoundPageComponent } from './components/error-not-found-page/error-not-found-page.component';
+import { CheckLoginComponent } from './components/check-login/check-login.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { ErrorNotFoundPageComponent } from './components/error-not-found-page/er
     OrderComponent,
     OrderInformationComponent,
     ErrorNotFoundPageComponent,
+    CheckLoginComponent,
   ],
   imports: [
     BrowserModule,

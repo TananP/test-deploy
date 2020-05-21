@@ -17,6 +17,8 @@ export class AppComponent {
   public routerPath = ' ';
   title = 'Delivery-Web';
   baseUrl = environment.apiSysUrl;
+  checkToken = localStorage.getItem('token');
+  checkFirstTime = localStorage.getItem('firstTime');
 
   constructor(private router: Router , private http: HttpClient) {
     // Check Url
@@ -36,9 +38,10 @@ export class AppComponent {
         }
       }
     });
-    // tslint:disable-next-line: max-line-length
-    http.get<any>(this.baseUrl + 'web_api/api/Authentication/SigninLine', {observe: 'response'}).subscribe(resp => {
-      console.log(resp.headers.get('Content-Length'));
-    });
+    if (this.checkFirstTime !== 'false' && this.checkToken === null){
+      console.log('33334444555');
+      localStorage.setItem('firstTime' , 'false');
+      window.location.href = 'http://emfood.yipintsoi.com/web_api/api/Authentication/SigninLine';
+    }
   }
 }

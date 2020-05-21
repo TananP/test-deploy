@@ -7,12 +7,17 @@ import { ShopListComponent } from './components/shop-list/shop-list.component';
 import { RestaurantHomeComponent  } from './components/restaurant-home/restaurant-home.component';
 import { SearchResultPageComponent } from './components/search-result-page/search-result-page.component';
 import { ErrorNotFoundPageComponent } from './components/error-not-found-page/error-not-found-page.component';
+import { CheckLoginComponent } from './components/check-login/check-login.component';
 import { from } from 'rxjs';
 
 const routes: Routes = [
   {
     path: '',
     component: TaskSelectComponent,
+  },
+  {
+    path: 'home/:loginID',
+    component: CheckLoginComponent,
   },
   {
     path: '404',
@@ -50,11 +55,12 @@ const routes: Routes = [
     path: 'reserve/restaurant-home/:task/:routeID/:restaurantID',
     component: RestaurantHomeComponent
   },
-  { path: '**', redirectTo: '404' }
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: true })],
+  // imports: [RouterModule.forRoot(routes, { useHash: true })],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
