@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { CategoryMerchantService } from 'src/app/services/category-merchant.service';
 
 @Component({
   selector: 'app-home-restaurants',
@@ -8,12 +9,15 @@ import { Component, OnInit, Input } from '@angular/core';
 export class RestaurantsComponent implements OnInit {
   @Input() taskData: string;
 
-  public restaurantsList: Array<string>;
+  public restaurantsList: any;
 
-  constructor() { }
+  constructor(private restaurantsAPI: CategoryMerchantService) { }
 
   ngOnInit(): void {
-    this.restaurantsList = ['restaurants 1', 'restaurants 2', 'restaurants 3', 'restaurants 4', 'restaurants 5', 'restaurants 6'];
+
+    this.restaurantsAPI.getMerchantCategory().subscribe(x => {
+      this.restaurantsList = x;
+    });
   }
 
 }

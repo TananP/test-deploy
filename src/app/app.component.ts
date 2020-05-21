@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
 import { Router, NavigationStart } from '@angular/router';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+import { environment } from 'src/environments/environment';
+import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-root',
@@ -11,8 +16,9 @@ export class AppComponent {
   public searchPage = false;
   public routerPath = ' ';
   title = 'Delivery-Web';
+  baseUrl = environment.apiSysUrl;
 
-  constructor(private router: Router) {
+  constructor(private router: Router , private http: HttpClient) {
     // Check Url
     router.events.forEach((event) => {
       if (event instanceof NavigationStart) {
@@ -29,6 +35,10 @@ export class AppComponent {
           this.routerPath = 'reserve';
         }
       }
+    });
+    // tslint:disable-next-line: max-line-length
+    http.get<any>(this.baseUrl + 'web_api/api/Authentication/SigninLine', {observe: 'response'}).subscribe(resp => {
+      console.log(resp.headers.get('Content-Length'));
     });
   }
 }

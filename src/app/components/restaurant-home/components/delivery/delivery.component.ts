@@ -12,6 +12,7 @@ export class DeliveryComponent implements OnInit {
   public menuName: string;
   public numberEachDish: number;
   public openCartPopUp: boolean;
+
   constructor() { }
 
   ngOnInit(): void {
